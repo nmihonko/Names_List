@@ -10,13 +10,14 @@ public class DataRepository {
         Scanner scanner = new Scanner(System.in);
         List<String> names = new ArrayList<>();
         System.out.print("How many names: ");
-        int amount = scanner.nextInt();
-        scanner.nextLine();
-        if (amount <= 0 ) {
-            throw new MyException("Amount must be greater than 0");
+        String input = scanner.nextLine();
+        if (!input.matches("\\d+")) {
+            throw new MyException("Amount must be a positive number without text");
         }
-
-
+        int amount = Integer.parseInt(input);
+        if (amount <= 0) {
+            throw new MyException("Amount must be a positive number");
+        }
 
         for (int i = 0; i < amount; i++) {
             System.out.print("Enter name: ");

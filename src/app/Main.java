@@ -13,7 +13,7 @@ public class Main {
         List<String> names = repository.getData();
 
         uiOperator.getOutput(handler.formListOutput(names));
-        uiOperator.getOutput(handler.formOutput(names, 1));
+        uiOperator.getOutput(handler.formOutput(names, 3));
     }
         catch (MyException e){
         System.out.println(e.getMessage());}

@@ -6,17 +6,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class DataHandler{
 
     public String formOutput(List<String> list, int index) throws MyException {
-
-        try {
-            if(list == null) {
+        if(list == null) {
                 throw new MyException("list is null");
-            }
-            String name = list.get(index);
-
-            return "Name: " + name + " is in index " + index;
-        } catch (IndexOutOfBoundsException e) {
-            return "Wrong index!";
         }
+        if(index < 0 || index >= list.size()) {
+            throw new MyException("Index is out of bounds");
+        }
+        String name = list.get(index);
+        return "Name: " + name + " is in index " + index;
     }
 
     public String formListOutput(List<String> list) throws MyException {
