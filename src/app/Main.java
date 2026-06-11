@@ -5,6 +5,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+        try{
         DataRepository repository = new DataRepository();
         DataHandler handler = new DataHandler();
         UIOperator uiOperator = new UIOperator();
@@ -13,5 +14,8 @@ public class Main {
 
         uiOperator.getOutput(handler.formListOutput(names));
         uiOperator.getOutput(handler.formOutput(names, 1));
+    }
+        catch (MyException e){
+        System.out.println(e.getMessage());}
     }
 }
