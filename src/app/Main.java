@@ -5,17 +5,17 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        try{
-        DataRepository repository = new DataRepository();
-        DataHandler handler = new DataHandler();
-        UIOperator uiOperator = new UIOperator();
+        try {
+            DataRepository repository = new DataRepository();
+            DataHandler handler = new DataHandler();
+            UIOperator uiOperator = new UIOperator();
 
-        List<String> names = repository.getData();
+            List<String> names = repository.getData();
 
-        uiOperator.getOutput(handler.formListOutput(names));
-        uiOperator.getOutput(handler.formOutput(names, 3));
-    }
-        catch (MyException e){
-        System.out.println(e.getMessage());}
+            uiOperator.getOutput(handler.formListOutput(names));
+            uiOperator.getOutput(handler.formOutput(names, 3));
+        } catch (InputValidationException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
