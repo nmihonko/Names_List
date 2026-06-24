@@ -14,7 +14,7 @@ public class Main {
 
             uiOperator.getOutput(handler.formListOutput(names));
             uiOperator.getOutput(handler.formOutput(names, 3));
-        } catch (InputValidationException e) {
+        } catch (InputValidationException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }

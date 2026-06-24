@@ -6,10 +6,10 @@ public class DataHandler {
 
     public String formOutput(List<String> list, int index) {
         if (list == null || list.isEmpty()) {
-            throw new InputValidationException("List cannot be null or empty");
+            throw new IllegalArgumentException("List cannot be null or empty");
         }
         if (index < 0 || index >= list.size()) {
-            throw new InputValidationException("Index is out of bounds, index = %s, size = %s".formatted(index, list.size()));
+            throw new IllegalArgumentException("Index is out of bounds, index = %s, size = %s".formatted(index, list.size()));
         }
         String name = list.get(index);
         return "Name: " + name + " is in index " + index;
@@ -17,7 +17,7 @@ public class DataHandler {
 
     public String formListOutput(List<String> list) {
         if (list == null || list.isEmpty()) {
-            throw new InputValidationException("List cannot be null or empty");
+            throw new IllegalArgumentException("List cannot be null or empty");
         }
 
         StringBuilder sb = new StringBuilder();
